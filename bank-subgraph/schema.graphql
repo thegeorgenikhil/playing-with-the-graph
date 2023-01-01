@@ -1,0 +1,16 @@
+type Transaction @entity {
+  id: ID!
+  user: User!
+  amount: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  transactionType: String!
+}
+
+type User @entity {
+  id: ID!
+  address: Bytes! # address
+  transactions: [Transaction!]! @derivedFrom(field: "user")
+  balance: BigInt! # uint256
+}

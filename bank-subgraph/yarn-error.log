@@ -1,0 +1,46 @@
+Arguments: 
+  /usr/bin/node /usr/bin/yarn
+
+PATH: 
+  /home/thegeorgenikhil/.local/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  19.3.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://raw.githubusercontent.com/hugomrdias/concat-stream/057bc7b5d6d8df26c8cf00a3f151b6721a0a8034/package.json: ETIMEDOUT
+      at Timeout._onTimeout (/usr/lib/node_modules/yarn/lib/cli.js:141550:19)
+      at listOnTimeout (node:internal/timers:564:17)
+      at process.processTimers (node:internal/timers:507:7)
+
+npm manifest: 
+  {
+    "name": "bank-subgraph",
+    "license": "UNLICENSED",
+    "scripts": {
+      "codegen": "graph codegen",
+      "build": "graph build",
+      "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ bank-subgraph",
+      "create-local": "graph create --node http://localhost:8020/ bank-subgraph",
+      "remove-local": "graph remove --node http://localhost:8020/ bank-subgraph",
+      "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 bank-subgraph",
+      "test": "graph test"
+    },
+    "dependencies": {
+      "@graphprotocol/graph-cli": "0.37.1",
+      "@graphprotocol/graph-ts": "0.28.1"
+    },
+    "devDependencies": { "matchstick-as": "0.5.0" }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -1,0 +1,27 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Bank
+    network: goerli
+    source:
+      address: "0x4048a44f9c2e7f943C03147f1d694d5393e55F85"
+      abi: Bank
+      startBlock: 8237188
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transaction
+        - User
+      abis:
+        - name: Bank
+          file: Bank/abis/Bank.json
+      eventHandlers:
+        - event: Deposit(indexed address,uint256)
+          handler: handleDeposit
+        - event: Withdrawal(indexed address,uint256)
+          handler: handleWithdrawal
+      file: Bank/Bank.wasm
